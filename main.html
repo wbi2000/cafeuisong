@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퇴직급여 계산기</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>퇴직급여 계산기</h1>
+
+        <!-- 안내 문구 시작 -->
+        <div class="notice-section">
+            <p><strong>[안내사항]</strong></p>
+            <ul>
+                <li>본 프로그램의 저작권은 의송주식회사에 있습니다.</li>
+                <li>사용방법은 <a href="YOUR_CAFE_LINK_HERE" target="_blank" id="manualLink">경기초등관리자네트워크 카페</a>에서 확인바랍니다. (링크 주소를 실제 주소로 변경해주세요)</li>
+                <li>본 프로그램은 참고용으로만 이용해주세요. 정확한 계산은 관련 기관에 문의하시기 바랍니다.</li>
+            </ul>
+        </div>
+        <!-- 안내 문구 끝 -->
+
+        <div class="input-group">
+            <label for="serviceStartDate">입사일:</label>
+            <input type="date" id="serviceStartDate" required>
+        </div>
+        <div class="input-group">
+            <label for="serviceEndDate">퇴직일 (또는 계산 기준일):</label>
+            <input type="date" id="serviceEndDate" required>
+        </div>
+
+        <div class="input-group">
+            <label for="benefitType">계산할 급여 유형:</label>
+            <select id="benefitType">
+                <option value="">선택하세요...</option>
+                <option value="retirementPension">퇴직연금</option>
+                <option value="earlyRetirementPension">조기퇴직연금</option>
+                <option value="pensionDeductionLumpsum">퇴직연금공제일시금</option>
+                <option value="pensionLumpsum">퇴직연금일시금 (5년초과 재직연수 적용)</option>
+                <option value="retirementLumpsum">퇴직일시금 (10년 미만 재직자)</option>
+            </select>
+        </div>
+
+        <!-- JavaScript로 동적 입력 필드가 여기에 추가됩니다 -->
+        <div id="conditionalInputs"></div>
+
+        <button onclick="calculateBenefit()">계산하기</button>
+
+        <div id="resultArea">
+            <h2>계산 결과</h2>
+            <div id="periodInfo"></div>
+            <div id="calculationDetails"></div> <!-- 상세 내역이 여기에 표시됨 -->
+            <div id="totalBenefit"></div>     <!-- 최종 총액이 여기에 표시됨 -->
+            <div id="messages"></div>         <!-- 각종 메시지가 여기에 표시됨 -->
+        </div>
+    </div>
+
+    <!-- JavaScript 파일 로드 -->
+    <script src="script.js"></script> 
+    <!-- 이 부분이 중요합니다! -->
+</body>
+</html>
